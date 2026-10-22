@@ -11,7 +11,9 @@ OrderReady lets a guest scan the QR code on their table, order and customise dis
 phone, and pay at the table — while staff watch orders arrive live on a tablet dashboard that
 prints kitchen tickets directly, with no POS register required.
 
-![Customer QR ordering](docs/screenshots/customer-desktop.png)
+![Owner dashboard with live orders](docs/screenshots/owner-dashboard.png)
+
+_Screenshots captured from a local dev run with the demo seed data._
 
 ## What it does
 
@@ -19,12 +21,18 @@ prints kitchen tickets directly, with no POS register required.
 (remove ingredients, add paid extras), coffee orders take their modifiers, and the cart sends
 the order to the kitchen. A waiter call and bill request are one tap.
 
+![Customer QR ordering](docs/screenshots/customer-desktop.png)
+
 **For the owner** — a PWA dashboard with live order arrival over SSE, status transitions,
 1-tap stock toggles and live price edits. Kitchen tickets print over raw TCP to a network
 thermal printer, so the product works standalone without third-party middleware.
 
 <p>
-  <img src="docs/screenshots/owner-menu.png" alt="Owner menu manager" width="72%">
+  <img src="docs/screenshots/owner-menu.png" alt="Owner menu manager" width="48%">
+  <img src="docs/screenshots/customize-modal.png" alt="Ingredient customiser with paired upsells" width="48%">
+</p>
+
+<p>
   <img src="docs/screenshots/customer-mobile.png" alt="Customer menu on mobile" width="24%">
 </p>
 
