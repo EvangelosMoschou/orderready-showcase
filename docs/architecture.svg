@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-label="OrderReady architecture">
+  <defs>
+    <style>
+      .box { fill: #151C27; stroke: #2A3444; stroke-width: 1.5; rx: 10; }
+      .accent { fill: #101E1E; stroke: #2DD4BF; stroke-width: 1.5; rx: 10; }
+      .t { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #E6EDF3; font-size: 14px; }
+      .h { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #E6EDF3; font-size: 15px; font-weight: 600; }
+      .m { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #8B949E; font-size: 12.5px; }
+      .s { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #2DD4BF; font-size: 11.5px; font-weight: 600; letter-spacing: .08em; }
+      .ar { stroke: #3B4759; stroke-width: 1.6; fill: none; marker-end: url(#a); }
+      .dash { stroke: #3B4759; stroke-width: 1.4; fill: none; stroke-dasharray: 5 4; marker-end: url(#a); }
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3B4759"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="640" fill="#0B0F17"/>
+
+  <text x="48" y="46" class="h" font-size="18">OrderReady — request path</text>
+  <text x="48" y="68" class="m">Spring Boot 3.2 · Java 21 · PostgreSQL 16 / H2 · single deployable</text>
+
+  <!-- Clients -->
+  <text x="48" y="112" class="s">CLIENTS</text>
+  <rect x="48" y="126" width="212" height="76" class="box"/>
+  <text x="66" y="152" class="h">Customer phone</text>
+  <text x="66" y="173" class="m">QR scan → table session</text>
+  <text x="66" y="190" class="m">menu · modifiers · cart</text>
+
+  <rect x="48" y="216" width="212" height="76" class="box"/>
+  <text x="66" y="242" class="h">Owner PWA</text>
+  <text x="66" y="263" class="m">live orders over SSE</text>
+  <text x="66" y="280" class="m">menu &amp; stock · receipts</text>
+
+  <!-- Edge -->
+  <text x="330" y="112" class="s">EDGE</text>
+  <rect x="330" y="126" width="236" height="76" class="accent"/>
+  <text x="348" y="152" class="h">Filters</text>
+  <text x="348" y="173" class="m">rate limit · security headers</text>
+  <text x="348" y="190" class="m">owner key · API key (HMAC)</text>
+
+  <rect x="330" y="216" width="236" height="76" class="box"/>
+  <text x="348" y="242" class="h">REST controllers</text>
+  <text x="348" y="263" class="m">/api/** + /api/r/{slug}/**</text>
+  <text x="348" y="280" class="m">orders · menu · tables · owner</text>
+
+  <!-- Core -->
+  <text x="636" y="112" class="s">DOMAIN</text>
+  <rect x="636" y="126" width="250" height="166" class="box"/>
+  <text x="654" y="152" class="h">Services</text>
+  <text x="654" y="176" class="m">OrderService — price authority,</text>
+  <text x="654" y="193" class="m">idempotency, payload hashing</text>
+  <text x="654" y="214" class="m">VAT engine — 13% / 24%, rounding</text>
+  <text x="654" y="235" class="m">Audit — SHA-256 hash chain</text>
+  <text x="654" y="256" class="m">Outbox — print &amp; POS dispatch</text>
+  <text x="654" y="277" class="m">Payment — quarantined, optional</text>
+
+  <!-- Data -->
+  <text x="956" y="112" class="s">STATE</text>
+  <rect x="956" y="126" width="196" height="76" class="box"/>
+  <text x="974" y="152" class="h">PostgreSQL 16</text>
+  <text x="974" y="173" class="m">tenant-scoped tables</text>
+  <text x="974" y="190" class="m">NUMERIC(12,2) money</text>
+
+  <rect x="956" y="216" width="196" height="76" class="box"/>
+  <text x="974" y="242" class="h">H2 (dev)</text>
+  <text x="974" y="263" class="m">zero-dependency run</text>
+  <text x="974" y="280" class="m">Flyway migrations</text>
+
+  <!-- Outbox row -->
+  <rect x="636" y="330" width="516" height="70" class="box"/>
+  <text x="654" y="356" class="h">Transactional outbox</text>
+  <text x="856" y="356" class="t">→ 80 mm ESC/POS ticket, TCP 9100</text>
+  <text x="654" y="378" class="m">persisted jobs · retry counters · dispatched outside the order transaction</text>
+
+  <!-- SSE return -->
+  <rect x="330" y="330" width="236" height="70" class="box"/>
+  <text x="348" y="356" class="h">SSE stream</text>
+  <text x="348" y="377" class="m">push to owner dashboard</text>
+
+  <!-- Arrows -->
+  <path class="ar" d="M 262 164 L 328 164"/>
+  <path class="ar" d="M 262 254 L 328 254"/>
+  <path class="ar" d="M 568 164 L 634 164"/>
+  <path class="ar" d="M 568 254 L 634 254"/>
+  <path class="ar" d="M 888 164 L 954 164"/>
+  <path class="ar" d="M 888 254 L 954 254"/>
+  <path class="ar" d="M 756 294 L 756 328"/>
+  <path class="ar" d="M 1054 294 L 1054 328"/>
+  <path class="dash" d="M 888 365 L 568 365"/>
+  <path class="dash" d="M 330 365 L 264 258"/>
+
+  <!-- Bottom notes -->
+  <text x="48" y="452" class="s">TRUST BOUNDARIES</text>
+  <text x="48" y="476" class="m">Write endpoints require a signed, 2-hour table session token: HMAC-SHA256(pepper, store:table:timestamp:nonce).</text>
+  <text x="48" y="496" class="m">Totals are always recomputed server-side from database prices; client-supplied totals are ignored.</text>
+  <text x="48" y="516" class="m">Integration secrets are encrypted with AES-256-GCM; store API keys are stored only as peppered HMAC hashes.</text>
+
+  <text x="48" y="556" class="s">HONEST SCOPE</text>
+  <text x="48" y="580" class="m">VAT is computed locally; nothing is transmitted to AADE/myDATA yet. Card payments are disabled by default.</text>
+  <text x="48" y="600" class="m">Rate limiting and the SSE registry are per-instance. The audit chain is tamper-evident, not a certification.</text>
+</svg>
